@@ -79,14 +79,37 @@ namespace AivdKerstPuzzel2018.PrePuzzle
                 0, 1, 2, 3, 4, 5
             };
 
-            var allWorlds = DictReader.ReadDict("Dutch");
+            //var numberListBase = new List<int>()
+            //{
+            //    0, 0, 0,
+            //    1,
+            //    2, 2,
+            //    1, 1,
+            //    2, 3, 3, 4, 4, 5,
+            //    5, 5,
+            //    6, 6, 6,
+            //    7, 7, 7, 7, 7,
+            //    6, 6,
+            //    5, 4,
+            //    4,
+            //    3, 3,
+            //    2, 1, 0,
+            //    0, 1, 2, 3, 4, 5
+            //};
 
+            //numberListBase.Reverse();
 
+            var allWorlds = DictReader.ReadDict("Dutch").Concat(DictReader.ReadDict("Voornamen")).ToArray();
+            //allWorlds = allWorlds.Select(t => t.ReverseString()).ToArray();
+            //var blah = allWorlds.Where(t => t.Contains("a") && t.Contains("i") && t.Contains("r") && t.Contains("s") && t.Contains("t")).ToList();
 
             var corrects = new List<string>()
             {
-                //"acht",
-                //"talent",
+                //"achternaam",
+                //"van",
+                //"scenarist",
+                //"massa",
+                //"",
                 //"wens",
                 //"opeens",
             };
@@ -158,7 +181,7 @@ namespace AivdKerstPuzzel2018.PrePuzzle
                 }
 
 
-        
+
                 //LogList(part2);
 
 
@@ -169,6 +192,7 @@ namespace AivdKerstPuzzel2018.PrePuzzle
             Console.WriteLine("Filtered:");
             foreach (var word in filtered.OrderBy(t => t.Length).ThenBy(t => t))
             {
+                //word = word.ReverseString();
                 Console.WriteLine(word);
             }
         }

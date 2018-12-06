@@ -13,7 +13,7 @@ namespace AivdKerstPuzzel2018.DictStuff
             var newList = new HashSet<string>();
             for (int i = 0; i < dutchWords.Length; i++)
             {
-                var cur = dutchWords[i];
+                var cur = dutchWords[i].ToLowerInvariant();
 
                 if (cur.Contains('/'))
                 {
