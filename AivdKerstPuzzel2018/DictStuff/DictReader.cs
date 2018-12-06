@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace AivdKerstPuzzel2018.DictStuff
 {
@@ -8,22 +10,22 @@ namespace AivdKerstPuzzel2018.DictStuff
         {
             var dutchWords = File.ReadAllLines($"Dictionaries/{language}.dic");
 
-            var newList = new string[dutchWords.Length];
+            var newList = new HashSet<string>();
             for (int i = 0; i < dutchWords.Length; i++)
             {
                 var cur = dutchWords[i];
 
                 if (cur.Contains('/'))
                 {
-                    newList[i] = cur.Substring(0, cur.IndexOf('/'));
+                    newList.Add(cur.Substring(0, cur.IndexOf('/')));
                 }
                 else
                 {
-                    newList[i] = cur;
+                    newList.Add(cur);
                 }
             }
 
-            return newList;
+            return newList.ToArray();
         }
     }
 }

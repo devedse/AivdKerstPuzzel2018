@@ -59,6 +59,8 @@ namespace AivdKerstPuzzel2018.PrePuzzle
                new List<string>() { "airst" },
             };
 
+            var combinations = data.Aggregate(1, (x, y) => x * y.Count);
+
             var numberListBase = new List<int>()
             {
                 0, 0, 0,
@@ -79,13 +81,11 @@ namespace AivdKerstPuzzel2018.PrePuzzle
 
             var allWorlds = DictReader.ReadDict("Dutch");
 
-            int max = 0;
-            string maxWord = "";
 
 
             var corrects = new List<string>()
             {
-                "acht",
+                //"acht",
                 //"talent",
                 //"wens",
                 //"opeens",
@@ -93,7 +93,7 @@ namespace AivdKerstPuzzel2018.PrePuzzle
 
             var filtered = new HashSet<string>();
 
-            for (int i = 0; i < 16; i++)
+            for (int i = 0; i < combinations; i++)
             {
                 Console.WriteLine($"Attempt: {i}");
 
@@ -101,7 +101,6 @@ namespace AivdKerstPuzzel2018.PrePuzzle
                 var part2 = ToCharList(part1);
                 var numberListToWorkWith = numberListBase.ToList();
 
-                //Find 2 words now
                 for (int zz = 0; zz < corrects.Count + 1; zz++)
                 {
                     bool foundhere = false;
@@ -168,7 +167,7 @@ namespace AivdKerstPuzzel2018.PrePuzzle
             }
 
             Console.WriteLine("Filtered:");
-            foreach (var word in filtered)
+            foreach (var word in filtered.OrderBy(t => t.Length).ThenBy(t => t))
             {
                 Console.WriteLine(word);
             }
