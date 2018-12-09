@@ -14,7 +14,7 @@ namespace AivdKerstPuzzel2018
             MainAsync(args).GetAwaiter().GetResult();
 
             Console.WriteLine("Application done, press enter to exit . . .");
-            Console.ReadKey();
+            Console.ReadLine();
         }
 
         public static async Task MainAsync(string[] args)
