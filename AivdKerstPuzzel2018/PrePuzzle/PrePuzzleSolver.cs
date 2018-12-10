@@ -105,7 +105,7 @@ namespace AivdKerstPuzzel2018.PrePuzzle
 
             var corrects = new List<string>()
             {
-                //"achternaam",
+                "acht",
                 //"van",
                 //"scenarist",
                 //"massa",
@@ -168,6 +168,11 @@ namespace AivdKerstPuzzel2018.PrePuzzle
                                     part2 = theDataToWorkWith;
                                     numberListToWorkWith = numberListToWorkWith.Skip(curWord.Length).ToList();
                                     foundhere = true;
+
+                                    //if (zz == 0)
+                                    //{
+                                    //    AddToChars(part2, 8);
+                                    //}
                                 }
                             }
                         }
@@ -194,6 +199,22 @@ namespace AivdKerstPuzzel2018.PrePuzzle
             {
                 //word = word.ReverseString();
                 Console.WriteLine(word);
+            }
+        }
+
+        public void AddToChars(List<List<char>> list, int amount)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                var curList = list[i];
+                for (int y = 0; y < curList.Count; y++)
+                {
+                    var curChar = curList[y];
+                    var charAsInt = CharValueHelper.CharToInt(curChar);
+                    charAsInt += amount;
+                    var newChar = CharValueHelper.IntToChar(charAsInt);
+                    curList[y] = newChar;
+                }
             }
         }
 
