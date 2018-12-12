@@ -15,13 +15,19 @@ namespace AivdKerstPuzzel2018.DictStuff
             {
                 var cur = dutchWords[i].ToLowerInvariant();
 
+                string toAdd;
                 if (cur.Contains('/'))
                 {
-                    newList.Add(cur.Substring(0, cur.IndexOf('/')));
+                    toAdd = cur.Substring(0, cur.IndexOf('/'));
                 }
                 else
                 {
-                    newList.Add(cur);
+                    toAdd = cur;
+                }
+
+                if (!string.IsNullOrWhiteSpace(toAdd))
+                {
+                    newList.Add(toAdd);
                 }
             }
 

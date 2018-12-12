@@ -6,9 +6,9 @@ namespace AivdKerstPuzzel2018.Helpers
 {
     public static class CharValueHelper
     {
-        private static char[] CharArray = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+        public static char[] CharArray = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
 
-        private static Dictionary<char, int> IntArray = CharArray.Select((t, i) => new { I = i, Char = t }).ToDictionary(t => t.Char, t => t.I);
+        private static Dictionary<char, int> IntArray = CharArray.Select((t, i) => new { I = i, Char = t }).ToDictionary(t => t.Char, t => t.I + 1);
 
         public static char IntToChar(int i)
         {
